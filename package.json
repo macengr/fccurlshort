@@ -9,6 +9,8 @@
   "author": "Scott McWilliams",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "isuri": "^2.0.3",
+    "shortid": "^2.2.6"
   }
 }
