@@ -1,8 +1,13 @@
 'use strict';
 
 var express = require('express');
-var MongoClient = require('mongodb').MongoClient
-var url = 'mongodb://localhost:27017/';
+var mongodb = require('mongodb');
+var MongoClient = mongodb.MongoClient;
+var url = 'mongodb://localhost:27017/shortened';
+
+
+
+
 var isUri = require('isuri');
 var shortid = require('shortid');
 
@@ -34,6 +39,7 @@ app.use(function(request, response) {
         
         var newURL = shortid.generate();
         
+
         MongoClient.connect(url, function (err, db) {
   if (err) {
     console.log('Unable to connect to the mongoDB server. Error:', err);
@@ -47,8 +53,9 @@ app.use(function(request, response) {
     db.close();
   }
 });
-        
-        
+
+
+
         
         
         
