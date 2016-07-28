@@ -6,9 +6,14 @@ var MongoClient = mongodb.MongoClient;
 var mongoUrl = 'mongodb://localhost:27017/shortened';
 var isUri = require('isuri');
 var shortid = require('shortid');
+var mongoose = require('mongoose');
 var app = express();
 var toBeShort;
 var port = process.env.PORT || 8080;
+var uristring = process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL || 'mongodb://localhost:27017/shortened';
+mongoose.connect(uristring);
+
 
 app.get('/new/*', function(request, response, next) {
     
@@ -20,6 +25,7 @@ app.get('/new/*', function(request, response, next) {
     console.log("This URL is " + dude);
     
     var newURL = shortid.generate();
+   
     
     MongoClient.connect(mongoUrl, function (err, db) {
     	
