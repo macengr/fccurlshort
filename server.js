@@ -3,7 +3,6 @@
 var express = require('express');
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
-var url = require('url');
 var mongoUrl = 'mongodb://localhost:27017/shortened';
 var isUri = require('isuri');
 var shortid = require('shortid');
